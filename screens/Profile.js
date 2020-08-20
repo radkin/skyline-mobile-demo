@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, FlatList, Image, ImageBackground, Platform } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -45,7 +45,7 @@ export default class Profile extends React.Component {
           </ImageBackground>
         </Block>
         <Block flex style={styles.options}>
-          <FlatList showsVerticalScrollIndicator={false}>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <Block row space="between" style={{ padding: theme.SIZES.BASE, }}>
               <Block middle>
                 <Text bold size={12} style={{marginBottom: 8}}>36</Text>
@@ -76,7 +76,7 @@ export default class Profile extends React.Component {
                 ))}
               </Block>
             </Block>
-          </FlatList>
+          </ScrollView>
         </Block>
       </Block>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, FlatList } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 
 import { Icon, Product } from '../components/';
@@ -47,7 +47,7 @@ export default class Home extends React.Component {
 
   renderProducts = () => {
     return (
-      <FlatList
+      <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
@@ -59,7 +59,7 @@ export default class Home extends React.Component {
           <Product product={products[3]} horizontal />
           <Product product={products[4]} full />
         </Block>
-      </FlatList>
+      </ScrollView>
     )
   }
 
