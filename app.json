@@ -20,13 +20,6 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "web": {
-      "build": {
-        "babel": {
-          "include": ["galio-framework"]
-        }
-      }
-    },
     "assetBundlePatterns": [
       "**/*"
     ],
