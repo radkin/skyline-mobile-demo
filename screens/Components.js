@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ScrollView,
+  FlatList,
   StyleSheet,
   TouchableOpacity,
   Image,
@@ -311,7 +311,7 @@ export default class Components extends React.Component {
   render() {
     return (
       <Block flex center>
-        <ScrollView
+        <FlatList
           style={styles.components}
           showsVerticalScrollIndicator={false}>
             {this.renderButtons()}
@@ -323,7 +323,7 @@ export default class Components extends React.Component {
             {this.renderSocial()}
             {this.renderCards()}
             {this.renderAlbum()}
-        </ScrollView>
+        </FlatList>
       </Block>
     );
   }

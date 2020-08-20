@@ -60,7 +60,7 @@ export default class MenuHorizontal extends React.Component {
     this.props.onChange && this.props.onChange(id);
   }
 
-  renderItem = (item) => {
+  renderRow = (item) => {
     const isActive = this.state.active === item.id;
 
     const textColor = this.animatedValue.interpolate({
@@ -68,7 +68,7 @@ export default class MenuHorizontal extends React.Component {
       outputRange: [materialTheme.COLORS.MUTED, isActive ? materialTheme.COLORS.ACTIVE : materialTheme.COLORS.MUTED],
       extrapolate: 'clamp',
     });
-    
+
     const width = this.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0%', isActive ? '100%' : '0%'],
@@ -103,7 +103,7 @@ export default class MenuHorizontal extends React.Component {
         keyExtractor={(item) => item.id}
         showsHorizontalScrollIndicator={false}
         onScrollToIndexFailed={this.onScrollToIndexFailed}
-        renderItem={({ item }) => this.renderItem(item)}
+        renderItem={({ item }) => this.renderRow(item)}
         contentContainerStyle={styles.menu}
       />
     )

@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableWithoutFeedback, ScrollView, StyleSheet, Image } from "react-native";
+import { TouchableWithoutFeedback, FlatList, StyleSheet, Image } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 import { useSafeArea } from "react-native-safe-area-context";
 
@@ -58,7 +58,7 @@ function CustomDrawerContent({
         </Block>
       </Block>
       <Block flex style={{ paddingLeft: 7, paddingRight: 14 }}>
-        <ScrollView
+        <FlatList
           contentContainerStyle={[
             {
               paddingTop: insets.top * 0.4,
@@ -78,7 +78,7 @@ function CustomDrawerContent({
               />
             );
           })}
-        </ScrollView>
+        </FlatList>
       </Block>
       <Block flex={0.3} style={{ paddingLeft: 7, paddingRight: 14 }}>
         <DrawerCustomItem
