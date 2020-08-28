@@ -1,14 +1,21 @@
 {
   "expo": {
-    "name": "skyline-mobile-demo",
-    "slug": "skyline-mobile-demo",
-    "version": "1.0.0",
+    "name": "rn-material-kit-free",
+    "description": "React Native - Material Kit Free",
+    "slug": "rn-material-kit-free",
+    "privacy": "unlisted",
+    "sdkVersion": "37.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.6.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#6C24AA"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -18,9 +25,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
