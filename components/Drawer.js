@@ -72,15 +72,6 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Components":
-        return (
-          <Icon
-            size={16}
-            name="md-switch"
-            family="ionicon"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
       case "Sign In":
         return (
           <Icon
@@ -106,16 +97,6 @@ class DrawerItem extends React.Component {
 
   renderLabel = () => {
     const { title } = this.props;
-
-    if (proScreens.includes(title)) {
-      return (
-        <Block middle style={styles.pro}>
-          <Text size={12} color="white">
-            PRO
-          </Text>
-        </Block>
-      );
-    }
 
     return null;
   };
