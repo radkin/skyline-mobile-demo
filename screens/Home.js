@@ -23,7 +23,7 @@ export default class Home extends React.Component {
       />
     )
   }
-  
+
   renderTabs = () => {
     const { navigation } = this.props;
 
@@ -58,6 +58,13 @@ export default class Home extends React.Component {
           </Block>
           <Product product={products[3]} horizontal />
           <Product product={products[4]} full />
+          <Product product={products[5]} horizontal />
+          <Block flex row>
+            <Product product={products[6]} style={{ marginRight: theme.SIZES.BASE }} />
+            <Product product={products[7]} />
+          </Block>
+          <Product product={products[8]} horizontal />
+          <Product product={products[9]} full />
         </Block>
       </ScrollView>
     )
@@ -74,7 +81,7 @@ export default class Home extends React.Component {
 
 const styles = StyleSheet.create({
   home: {
-    width: width,    
+    width: width,
   },
   search: {
     height: 48,
