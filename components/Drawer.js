@@ -6,10 +6,9 @@ import Icon from "./Icon";
 import materialTheme from "../constants/Theme";
 
 const proScreens = [
-  "Woman",
-  "Man",
-  "Kids",
-  "New Collection",
+  "Products",
+  "Services",
+  "Research",
   "Sign In",
   "Sign Up"
 ];
@@ -28,7 +27,7 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Woman":
+      case "Products":
         return (
           <Icon
             size={16}
@@ -37,7 +36,7 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Man":
+      case "Services":
         return (
           <Icon
             size={16}
@@ -46,21 +45,12 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Kids":
+      case "Research":
         return (
           <Icon
             size={16}
             name="baby"
             family="GalioExtra"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
-      case "New Collection":
-        return (
-          <Icon
-            size={16}
-            name="grid-on"
-            family="material"
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
