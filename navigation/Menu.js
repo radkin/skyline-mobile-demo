@@ -18,13 +18,11 @@ function CustomDrawerContent({
   const insets = useSafeArea();
   const screens = [
     "Home",
-    "Woman",
-    "Man",
-    "Kids",
-    "New Collection",
+    "Products",
+    "Services",
+    "Research",
     "Profile",
-    "Settings",
-    "Components"
+    "Settings"
   ];
   return (
     <Block
@@ -102,7 +100,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    backgroundColor: '#4B1958',
+    backgroundColor: '#845286',
     paddingHorizontal: 28,
     paddingBottom: theme.SIZES.BASE,
     paddingTop: theme.SIZES.BASE * 2,

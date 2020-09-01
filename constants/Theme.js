@@ -1,15 +1,15 @@
 export default {
   COLORS: {
     DEFAULT: '#DCDCDC',
-    PRIMARY: '#9C26B0',
+    PRIMARY: '#845286',
     LABEL: '#FE2472',
     INFO: '#00BCD4',
     ERROR: '#F44336',
     SUCCESS: '#4CAF50',
     WARNING: '#FF9800',
-    MUTED: '#979797',
+    MUTED: '#6b7c93',
     INPUT: '#DCDCDC',
-    ACTIVE: '#9C26B0',
+    ACTIVE: '#7BAACA',
     BUTTON_COLOR: '#9C26B0',
     PLACEHOLDER: '#9FA5AA',
     SWITCH_ON: '#9C26B0',
