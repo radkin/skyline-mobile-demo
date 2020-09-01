@@ -1,126 +1,157 @@
 import React from 'react';
-import { StyleSheet, Switch, FlatList, Platform, TouchableOpacity, View } from "react-native";
-import { Block, Text, theme, Icon } from "galio-framework";
-
+// import { StyleSheet, Switch, FlatList, Platform, TouchableOpacity, View } from "react-native";
+// import { Block, Text, theme, Icon } from "galio-framework";
+import { Alert, Dimensions, KeyboardAvoidingView, StyleSheet, Platform } from 'react-native';
 import materialTheme from '../constants/Theme';
 
-export default class Login extends React.Component {
-  state = {};
+// galio component
+import { Block, Button, Input, NavBar, Text } from 'galio-framework';
 
-  toggleSwitch = switchNumber => this.setState({ [switchNumber]: !this.state[switchNumber] });
+const { height, width } = Dimensions.get('window');
 
-  renderItem = ({ item }) => {
-    const {navigate} = this.props.navigation;
+class Login extends React.Component {
+  state = {
+    email: '-',
+    password: '-',
+  }
 
-    switch(item.type) {
-      case 'switch':
-        return (
-          <Block row middle space="between" style={styles.rows}>
-            <Text size={14}>{item.title}</Text>
-            <Switch
-              onValueChange={() => this.toggleSwitch(item.id)}
-              ios_backgroundColor={materialTheme.COLORS.SWITCH_OFF}
-              thumbColor={Platform.OS === 'android' ? materialTheme.COLORS.SWITCH_OFF : null}
-              trackColor={{ false: materialTheme.COLORS.SWITCH_OFF, true: materialTheme.COLORS.SWITCH_ON }}
-              value={this.state[item.id]}
-            />
-          </Block>
-        );
-      case 'button':
-        return (
-          <Block style={styles.rows}>
-            <TouchableOpacity onPress={() => navigate('Pro')}>
-              <Block row middle space="between" style={{paddingTop:7}}>
-                <Text size={14}>{item.title}</Text>
-                <Icon name="angle-right" family="font-awesome" style={{ paddingRight: 5 }} />
-              </Block>
-            </TouchableOpacity>
-          </Block>);
-      default:
-        break;
-    }
+  handleChange = (name, value) => {
+    this.setState({ [name]: value });
   }
 
   render() {
-    const recommended = [
-      { title: "Use FaceID to sign in", id: "face", type: "switch" },
-      { title: "Auto-Lock security", id: "autolock", type: "switch" },
-      { title: "Notifications", id: "Notifications", type: "button" },
-    ];
-
-    const payment = [
-      { title: "Manage Payment Options", id: "Payment", type: "button" },
-      { title: "Manage Gift Cards", id: "gift", type: "button" },
-    ];
-
-    const privacy = [
-      { title: "User Agreement", id: "Agreement", type: "button" },
-      { title: "Privacy", id: "Privacy", type: "button" },
-      { title: "About", id: "About", type: "button" },
-    ];
+    const { navigation } = this.props;
+    const { email, password } = this.state;
 
     return (
-      <View
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.settings}>
-        <FlatList
-          data={recommended}
-          keyExtractor={(item, index) => item.id}
-          renderItem={this.renderItem}
-          ListHeaderComponent={
-            <Block style={styles.title}>
-              <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-                Recommended Settings
-              </Text>
-              <Text center muted size={12}>
-                These are the most important settings
+      <Block safe flex style={{ backgroundColor: materialTheme.COLORS.WHITE }}>
+        <NavBar
+          title="Sign In"
+          onLeftPress={() => navigation.openDrawer()}
+          style={Platform.OS === 'android' ? { marginTop: materialTheme.SIZES.BASE } : null}
+        />
+        <KeyboardAvoidingView style={styles.container} behavior="height" enabled>
+          <Block flex center style={{ marginTop: materialTheme.SIZES.BASE * 1.875, marginBottom: height * 0.1 }}>
+            <Text muted center size={materialTheme.SIZES.FONT * 0.875} style={{ paddingHorizontal: materialTheme.SIZES.BASE * 2.3 }}>
+              This is the perfect place to write a short description
+              of this step and even the next steps ahead
+            </Text>
+            <Block row center space="between" style={{ marginVertical: materialTheme.SIZES.BASE * 1.875 }}>
+              <Block flex middle right>
+                <Button
+                  round
+                  onlyIcon
+                  iconSize={materialTheme.SIZES.BASE * 1.625}
+                  icon="facebook"
+                  iconFamily="FontAwesome"
+                  color={materialTheme.COLORS.FACEBOOK}
+                  shadowColor={materialTheme.COLORS.FACEBOOK}
+                  iconColor={materialTheme.COLORS.WHITE}
+                  style={styles.social}
+                  onPress={() => Alert.alert('Not implemented')}
+                />
+              </Block>
+              <Block flex middle center>
+                <Button
+                  round
+                  onlyIcon
+                  iconSize={materialTheme.SIZES.BASE * 1.625}
+                  icon="twitter"
+                  iconFamily="FontAwesome"
+                  color={materialTheme.COLORS.TWITTER}
+                  shadowColor={materialTheme.COLORS.TWITTER}
+                  iconColor={materialTheme.COLORS.WHITE}
+                  style={styles.social}
+                  onPress={() => Alert.alert('Not implemented')}
+                />
+              </Block>
+              <Block flex middle left>
+                <Button
+                  round
+                  onlyIcon
+                  iconSize={materialTheme.SIZES.BASE * 1.625}
+                  icon="dribbble"
+                  iconFamily="FontAwesome"
+                  color={materialTheme.COLORS.DRIBBBLE}
+                  shadowColor={materialTheme.COLORS.DRIBBBLE}
+                  iconColor={materialTheme.COLORS.WHITE}
+                  style={styles.social}
+                  onPress={() => Alert.alert('Not implemented')}
+                />
+              </Block>
+            </Block>
+            <Text muted center size={materialTheme.SIZES.FONT * 0.875}>
+              or be classical
+            </Text>
+          </Block>
+
+          <Block flex={2} center space="evenly">
+            <Block flex={2}>
+              <Input
+                rounded
+                type="email-address"
+                placeholder="Email"
+                autoCapitalize="none"
+                style={{ width: width * 0.9 }}
+                onChangeText={text => this.handleChange('email', text)}
+              />
+              <Input
+                rounded
+                password
+                viewPass
+                placeholder="Password"
+                style={{ width: width * 0.9 }}
+                onChangeText={text => this.handleChange('password', text)}
+              />
+              <Text
+                color={materialTheme.COLORS.ERROR}
+                size={materialTheme.SIZES.FONT * 0.75}
+                onPress={() => Alert.alert('Not implemented')}
+                style={{ alignSelf: 'flex-end', lineHeight: materialTheme.SIZES.FONT * 2 }}
+              >
+                Forgot your password?
               </Text>
             </Block>
-          }
-        />
-        <Block style={styles.title}>
-          <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-          Payment Settings
-          </Text>
-          <Text center muted size={12}>
-          These are also important settings
-          </Text>
-        </Block>
-        <FlatList
-          data={payment}
-          keyExtractor={(item, index) => item.id}
-          renderItem={this.renderItem}
-        />
-        <Block style={styles.title}>
-          <Text bold center size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-          Privacy Settings
-          </Text>
-          <Text center muted size={12}>
-          Third most important settings
-          </Text>
-        </Block>
-        <FlatList
-          data={privacy}
-          keyExtractor={(item, index) => item.id}
-          renderItem={this.renderItem}
-        />
-      </View>
-
+            <Block flex middle>
+              <Button
+                round
+                color="error"
+                onPress={() => Alert.alert(
+                  'Sign in action',
+                  `Email: ${email}
+Password: ${password}`,
+                )}
+              >
+                Sign in
+              </Button>
+              <Button color="transparent" shadowless onPress={() => navigation.navigate('Register')}>
+                <Text center color={materialTheme.COLORS.ERROR} size={materialTheme.SIZES.FONT * 0.75}>
+                  {"Don't have an account? Sign Up"}
+                </Text>
+              </Button>
+            </Block>
+          </Block>
+        </KeyboardAvoidingView>
+      </Block>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  settings: {
-    paddingVertical: theme.SIZES.BASE / 3,
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingTop: materialTheme.SIZES.BASE * 0.3,
+    paddingHorizontal: materialTheme.SIZES.BASE,
+    backgroundColor: materialTheme.COLORS.WHITE,
   },
-  title: {
-    paddingTop: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE / 2,
+  social: {
+    width: materialTheme.SIZES.BASE * 3.5,
+    height: materialTheme.SIZES.BASE * 3.5,
+    borderRadius: materialTheme.SIZES.BASE * 1.75,
+    justifyContent: 'center',
   },
-  rows: {
-    height: theme.SIZES.BASE * 2,
-    paddingHorizontal: theme.SIZES.BASE,
-    marginBottom: theme.SIZES.BASE / 2,
-  }
 });
+
+export default Login;
