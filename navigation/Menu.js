@@ -22,7 +22,8 @@ function CustomDrawerContent({
     "Services",
     "Research",
     "Profile",
-    "Settings"
+    "Settings",
+    "Login",
   ];
   return (
     <Block

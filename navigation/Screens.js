@@ -10,6 +10,7 @@ import HomeScreen from '../screens/Home';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
+import LoginScreen from '../screens/Login';
 
 import CustomDrawerContent from './Menu';
 import { Icon, Header } from '../components';
@@ -64,6 +65,26 @@ function SettingsStack(props) {
         options={{
           header: ({ navigation, scene }) => (
             <Header title="Settings" scene={scene} navigation={navigation} />
+          )
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function LoginStack(props) {
+  return (
+    <Stack.Navigator
+      initialRouteName="Login"
+      mode="card"
+      headerMode="screen"
+    >
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="Login" scene={scene} navigation={navigation} />
           )
         }}
       />
@@ -222,8 +243,8 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Sign In"
-        component={ProScreen}
+        name="Login"
+        component={LoginScreen}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
