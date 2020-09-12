@@ -20,20 +20,8 @@ export default {
     BORDER_COLOR: '#E7E7E7',
     BLOCK: '#E7E7E7',
     ICON: '#4A4A4A',
-    NEUTRAL: 'rgba(255,255,255, 0.65)',
-    FACEBOOK: '#3B5998',
-    TWITTER: '#5BC0DE',
-    DRIBBBLE: '#EA4C89',
-    WHITE: '#FFFFFF',
-    BLACK: '#000000',
-    GREY: '#898989',
-    THEME: '#B23AFC',
-    NAVBAR: '#F9F9F9',
   },
   SIZES: {
     BLOCK_SHADOW_RADIUS: 2,
-    BASE: 16,
-    FONT: 16,
-    OPACITY: 0.8,
   }
 };
